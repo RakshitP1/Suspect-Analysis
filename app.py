@@ -1,10 +1,13 @@
 from flask import Flask, escape, request, jsonify
+from flask_cors import CORS
 
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
 
 app = Flask(__name__)
+
+CORS(app)
 
 @app.route('/') 
 def hello():

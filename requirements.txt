@@ -4,3 +4,4 @@ google-cloud-language
 pymongo[srv]
 tweepy
 pprint
+flask-cors
