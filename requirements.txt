@@ -1,3 +1,6 @@
 Flask
 requests
 google-cloud-language
+pymongo[srv]
+tweepy
+pprint
