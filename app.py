@@ -4,15 +4,11 @@ from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
 
-
-
-
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/') 
 def hello():
     return "Hello, World!"
-
 
 @app.route("/analyze-text")
 def analyze_text():
@@ -32,7 +28,3 @@ def analyze_text():
     }
 
     return jsonify(json_return)
-
-
-
-

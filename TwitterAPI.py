@@ -3,7 +3,7 @@ from pymongo import MongoClient
 import tweepy
 from pprint import pprint
 
-
+#authentication keys
 CONSUMER_KEY="Gu73BTDiz3grPM1aCfxqLPAP9"
 CONSUMER_SECRET="oYyN16dKgPp5YHZ2USJPqWJpBNCFcl8Fsrc7QynMVcG5kbc1q9"
 OAUTH_TOKEN="1228614243219582976-qRcxliWcrChAWAV0Atg4XTvyqeBzNa"
