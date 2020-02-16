@@ -41,7 +41,11 @@ def sort_ent_dict(ent_dict, pos):
         ent_list.append([x, ent_dict[x]])
 
     ent_list.sort(key=lambda ent: ent[1], reverse=pos)
-    return ent_list[:9]
+    if len(ent_list) >= 9:
+        return ent_list[:9]
+    else:
+        return ent_list
+
 
 
 
@@ -62,10 +66,10 @@ def add_entity_list(big_entity_list, small_entity_list):
 if __name__ == '__main__':
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "google-auth.json"
     z = open("tweetsList.txt", "r")
-    
+
     text = z.read()
     return_tuple = all_tweets_entities([text])
-    z.close()    
+    z.close()
 
     with open("keys.txt", "w+") as json_file:
         json.dump(return_tuple[0], json_file)
@@ -73,4 +77,4 @@ if __name__ == '__main__':
         json.dump(return_tuple[1], json_file)
 
     print(all_tweets_entities([text]))
-    
+
