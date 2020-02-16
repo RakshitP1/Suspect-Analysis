@@ -15,7 +15,7 @@ auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 # Setting your access token and secret
 auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 # Creating the API object while passing in auth information
-api = tweepy.API(auth) 
+api = tweepy.API(auth)
 
 #mongo client
 client = MongoClient("mongodb+srv://test:Test123@cluster0-6occj.gcp.mongodb.net/test?retryWrites=true&w=majority")
@@ -23,11 +23,11 @@ client = MongoClient("mongodb+srv://test:Test123@cluster0-6occj.gcp.mongodb.net/
 #get the database
 Users = client.get_database('Twitter_Users')
 
-#get the collection 
+#get the collection
 feeds = Users.Twitter_Feeds
 
 #not needed but aim is to sort in ascending order
-# feeds.create_index([("id",pymongo.ASCENDING)],unique=True) 
+# feeds.create_index([("id",pymongo.ASCENDING)],unique=True)
 f=open("name.txt", "r")
 name = f.read()
 f.close()
@@ -69,7 +69,7 @@ for tweet in results:
    if  name not in search_results:
        search_results[name] = []
    if tweet.text not in search_results[name]:
-       search_results[name].append(tweet.text) 
+       search_results[name].append(tweet.text)
 
 if fail_safe != 0: #already exists
     for i in range(curr_tweets):
@@ -83,6 +83,27 @@ for i in range(len(search_results[name])):
             z.write(character)
 
 z.close()
+z = open("tweetslist.txt", "r")
+text1 = z.read()
+z.close()
+
+text_list = text1.split()
+final_list = []
+for x in text_list:
+    if (len(x) < 9) or (x[:8] != 'https://'):
+        final_list.append(x)
+
+final_string = ""
+for y in final_list:
+    final_string += y
+    final_string += " "
+
+z = open("tweetslist.txt", "w")
+z.write(final_string)
+z.close()
+
+
+
 
 if fail_safe != 0: #already exists in database
     feeds.delete_many({"name": name})
