@@ -33,7 +33,16 @@ def all_tweets_entities(tweets: list):
         add_entity_list(all_positive_entities, temp[0])
         add_entity_list(all_negative_entities, temp[1])
 
-    return (all_positive_entities, all_negative_entities)
+    return (sort_ent_dict(all_positive_entities, True), sort_ent_dict(all_negative_entities, False))
+
+def sort_ent_dict(ent_dict, pos):
+    ent_list = []
+    for x in ent_dict:
+        ent_list.append([x, ent_dict[x]])
+
+    ent_list.sort(key=lambda ent: ent[1], reverse=pos)
+    return ent_list[:9]
+
 
 
 def add_to_entities(entity_list, entity):
