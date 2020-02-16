@@ -7,6 +7,7 @@ import SuspectPage from "./Pages/SuspectPage/SuspectPage";
 import Sentiment from "./Components/Sentiment/Sentiment.js";
 
 import "./App.css";
+// import "./bootstrap.min.css";
 
 function App() {
   return (
