@@ -7,8 +7,6 @@ from google.cloud.language import types
 from subprocess import call
 app = Flask(__name__)
 
-app = Flask(__name__)
-
 @app.route('/')
 def hello():
     return str(type("nihal"))
