@@ -1,5 +1,7 @@
 from flask import Flask, escape, request, jsonify
 
+from flask_cors import CORS
+
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
@@ -10,20 +12,25 @@ import json
 
 app = Flask(__name__)
 
+
+CORS(app)
+
+
 @app.route('/')
 def hello():
     return "here"
 
-@app.route('/create', methods=['GET'])
-def load_form(): # get info form
-    name = str(request.args.get('name')) # find the params
-    twitter_handle = str(request.args.get('twitter_handle')) # find the params
 
-    t=open("handle.txt", "w+")
+@app.route('/create', methods=['GET'])
+def load_form():  # get info form
+    name = str(request.args.get('name'))  # find the params
+    twitter_handle = str(request.args.get('twitter_handle'))  # find the params
+
+    t = open("handle.txt", "w+")
     t.write(twitter_handle)
     t.close()
 
-    f = open("name.txt","w+")
+    f = open("name.txt", "w+")
     f.write(name)
     f.close()
 
@@ -47,10 +54,11 @@ def load_form(): # get info form
 
     return json.dumps(keys_List)
 
+
 @app.route("/analyze-text")
 def analyze_text():
     client = language.LanguageServiceClient()
-    text =  request.args.get("text")
+    text = request.args.get("text")
     text = text.replace('"', "")
     document = types.Document(
         content=text,
@@ -65,7 +73,3 @@ def analyze_text():
     }
 
     return jsonify(json_return)
-
-
-
-
