@@ -12,3 +12,37 @@
   text-align: center;
   font-size: 2em;
 }
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2em;
+}
+
+th {
+  padding: 15px;
+}
+
+.love {
+  background-color: #0dbaff;
+}
+
+.like {
+  background-color: #6ed6ff;
+}
+
+.cordial {
+  background-color: #c7efff;
+}
+
+.annoyed {
+  background-color: #ffc2c2;
+}
+
+.dislike {
+  background-color: #ff8282;
+}
+
+.hate {
+  background-color: #ff3636;
+}
