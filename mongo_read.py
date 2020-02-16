@@ -36,6 +36,10 @@ t=open("handle.txt", "r")
 handle = t.read()
 t.close()
 
+if(handle != "None"):
+    name = handle
+
+print(name)
 
 # twitter handle is more accurate than name
 

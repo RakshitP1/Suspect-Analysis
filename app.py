@@ -26,7 +26,6 @@ def load_form(): # get info form
 
     call(["python", "mongo_read.py"])
     call(["python", "nlp_test.py"])
-
     return "Params: " + name + " " + twitter_handle
 
 @app.route("/analyze-text")
