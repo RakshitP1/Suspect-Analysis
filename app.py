@@ -30,6 +30,7 @@ def load_form(): # get info form
     return "Params: " + name + " " + twitter_handle
 
 
+
 @app.route("/analyze-text")
 def analyze_text():
     client = language.LanguageServiceClient()
@@ -48,3 +49,7 @@ def analyze_text():
     }
 
     return jsonify(json_return)
+
+
+
+
