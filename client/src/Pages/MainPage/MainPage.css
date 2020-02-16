@@ -1,0 +1,44 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+  margin-top: 2em;
+}
+
+form {
+  margin-top: 11em;
+  font-size: 1em;
+  text-align: center;
+}
+
+label {
+  margin-right: 1em;
+}
+
+input {
+  width: 30em;
+  height: 3em;
+  font-size: 1em;
+  border-radius: 30px;
+  border: none;
+  border: 1px black solid;
+  padding: 10px;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1em;
+  font-size: 20px;
+  border-radius: 15px;
+  border: none;
+  background-color: #8ab2f2;
+  color: black;
+  padding: 10px;
+  /* width: 50%; */
+  /* text-align: center; */
+}
