@@ -102,9 +102,6 @@ z = open("tweetslist.txt", "w")
 z.write(final_string)
 z.close()
 
-
-
-
 if fail_safe != 0: #already exists in database
     feeds.delete_many({"name": name})
 
