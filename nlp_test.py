@@ -61,6 +61,7 @@ def add_entity_list(big_entity_list, small_entity_list):
 
 if __name__ == '__main__':
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "google-auth.json"
-    s1 = "I like London. London is my favourite city. I do not like Toronto."
-    s2 = "London is a good city and I like being in it. I like playing basketball but do not like soccer. Toronto is bad"
-    print(all_tweets_entities([s1, s2]))
+    z = open("tweetsList.txt", "r")
+    text = z.read()
+    print(all_tweets_entities(text))
+    z.close() 

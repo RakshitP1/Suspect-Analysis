@@ -36,8 +36,6 @@ t=open("handle.txt", "r")
 handle = t.read()
 t.close()
 
-if(handle != "none"):
-    name = handle 
 
 # twitter handle is more accurate than name
 
@@ -78,6 +76,10 @@ if fail_safe != 0: #already exists
         search_results[name].append(tweets[name][i])
 
 #print(search_results)
+z = open("tweetsList.txt", "w+")
+for i in range(len(search_results[name])):
+    z.write(search_results[name][i])
+z.close()
 
 if fail_safe != 0: #already exists in database
     feeds.delete_many({"name": name})

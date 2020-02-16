@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return str(type("nihal"))
+    return "here"
 
 @app.route('/create', methods=['GET'])
 def load_form(): # get info form
@@ -25,9 +25,8 @@ def load_form(): # get info form
     f.close()
     
     call(["python", "mongo_read.py"])
+    
     return "Params: " + name + " " + twitter_handle
-
-
 
 @app.route("/analyze-text")
 def analyze_text():
