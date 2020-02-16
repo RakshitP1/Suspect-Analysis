@@ -79,7 +79,7 @@ if fail_safe != 0: #already exists
 z = open("tweetsList.txt", "w+")
 for i in range(len(search_results[name])):
     for character in search_results[name][i]:
-        if (character >= ' ' and character <= 'z'):
+        if (character >= ' ' and character <= 'z') or (character == '\n'):
             z.write(character)
 
 z.close()
