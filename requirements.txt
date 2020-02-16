@@ -1,3 +1,7 @@
 Flask
 requests
 google-cloud-language
+tweepy
+pprint
+flask-cors
+pymongo
