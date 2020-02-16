@@ -25,7 +25,7 @@ def load_form(): # get info form
     f.close()
     
     call(["python", "mongo_read.py"])
-    call(["python", "npl_test.py"])
+    call(["python", "nlp_test.py"])
     
     return "Params: " + name + " " + twitter_handle
 
