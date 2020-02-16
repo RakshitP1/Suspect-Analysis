@@ -32,15 +32,6 @@ def all_tweets_entities(tweets: list):
         temp = tweet_interest_entities(tweet)
         add_entity_list(all_positive_entities, temp[0])
         add_entity_list(all_negative_entities, temp[1])
-    print("POS")
-    for x in all_positive_entities:
-        print(x)
-        print(all_positive_entities[x])
-
-    print("NEG")
-    for y in all_negative_entities:
-        print(y)
-        print(all_negative_entities[y])
 
     return (all_positive_entities, all_negative_entities)
 
@@ -63,5 +54,5 @@ if __name__ == '__main__':
     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "google-auth.json"
     z = open("tweetsList.txt", "r")
     text = z.read()
-    print(all_tweets_entities(text))
-    z.close() 
+    print(all_tweets_entities([text]))
+    z.close()
