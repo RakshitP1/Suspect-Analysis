@@ -1,5 +1,4 @@
 from flask import Flask, escape, request, jsonify
-from flask_cors import CORS
 
 from google.cloud import language
 from google.cloud.language import enums
@@ -8,13 +7,9 @@ from google.cloud.language import types
 from subprocess import call
 app = Flask(__name__)
 
-CORS(app)
+app = Flask(__name__)
 
-global name
-name = ""
-twitter_handle = ""
-
-@app.route('/') 
+@app.route('/')
 def hello():
     return str(type("nihal"))
 
@@ -34,6 +29,7 @@ def load_form(): # get info form
     call(["python", "mongo_read.py"])
     return "Params: " + name + " " + twitter_handle
 
+
 @app.route("/analyze-text")
 def analyze_text():
     client = language.LanguageServiceClient()
@@ -52,9 +48,3 @@ def analyze_text():
     }
 
     return jsonify(json_return)
-
-def get_name(person):
-    return person
-
-def get_twitter(twitter):
-    return twitter
