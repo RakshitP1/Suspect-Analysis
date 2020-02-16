@@ -27,8 +27,8 @@ def load_form(): # get info form
     f.write(name)
     f.close()
 
-    #call(["python", "mongo_read.py"])
-    #call(["python", "nlp_test.py"])
+    call(["python", "mongo_read.py"])
+    call(["python", "nlp_test.py"])
 
     analysis = open("keys.txt", "r")
     local_dict = analysis.read()
