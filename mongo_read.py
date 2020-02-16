@@ -1,6 +1,7 @@
 import pymongo
 from pymongo import MongoClient
 import tweepy
+import app
 from pprint import pprint
 
 #authentication keys
@@ -27,7 +28,18 @@ feeds = Users.Twitter_Feeds
 
 #not needed but aim is to sort in ascending order
 # feeds.create_index([("id",pymongo.ASCENDING)],unique=True) 
-name = "JustinTrudeau"
+f=open("name.txt", "r")
+name = f.read()
+f.close()
+
+t=open("handle.txt", "r")
+handle = t.read()
+t.close()
+
+if(handle != "none"):
+    name = handle 
+
+# twitter handle is more accurate than name
 
 #list of current account info
 tweets = feeds.find_one({"name":name})
@@ -56,7 +68,7 @@ search_results = {'name':name}
 
 #adding tweet results
 for tweet in results:
-   if name not in search_results:
+   if  name not in search_results:
        search_results[name] = []
    if tweet.text not in search_results[name]:
        search_results[name].append(tweet.text) 

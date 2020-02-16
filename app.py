@@ -5,13 +5,34 @@ from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
 
+from subprocess import call
 app = Flask(__name__)
 
 CORS(app)
 
+global name
+name = ""
+twitter_handle = ""
+
 @app.route('/') 
 def hello():
-    return "Hello, World!"
+    return str(type("nihal"))
+
+@app.route('/create', methods=['GET'])
+def load_form(): # get info form
+    name = str(request.args.get('name')) # find the params
+    twitter_handle = str(request.args.get('twitter_handle')) # find the params
+
+    t=open("handle.txt", "w+")
+    t.write(twitter_handle)
+    t.close()
+
+    f = open("name.txt","w+")
+    f.write(name)
+    f.close()
+    
+    call(["python", "mongo_read.py"])
+    return "Params: " + name + " " + twitter_handle
 
 @app.route("/analyze-text")
 def analyze_text():
@@ -31,3 +52,9 @@ def analyze_text():
     }
 
     return jsonify(json_return)
+
+def get_name(person):
+    return person
+
+def get_twitter(twitter):
+    return twitter
