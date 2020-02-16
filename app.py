@@ -1,17 +1,18 @@
 from flask import Flask, escape, request, jsonify
-from flask_cors import CORS
 
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
 
+
+
+
 app = Flask(__name__)
 
-CORS(app)
-
-@app.route('/') 
+@app.route('/')
 def hello():
     return "Hello, World!"
+
 
 @app.route("/analyze-text")
 def analyze_text():
@@ -31,3 +32,7 @@ def analyze_text():
     }
 
     return jsonify(json_return)
+
+
+
+
