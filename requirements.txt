@@ -5,3 +5,4 @@ tweepy
 pprint
 flask-cors
 pymongo
+dnspython
