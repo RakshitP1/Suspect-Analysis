@@ -5,6 +5,9 @@ from google.cloud.language import enums
 from google.cloud.language import types
 
 from subprocess import call
+
+import json
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -26,7 +29,23 @@ def load_form(): # get info form
 
     call(["python", "mongo_read.py"])
     call(["python", "nlp_test.py"])
-    return "Params: " + name + " " + twitter_handle
+
+    analysis = open("keys.txt", "r")
+    local_dict = analysis.read()
+    analysis.close()
+
+    analysis2 = open("keys2.txt", "r")
+    local_dict2 = analysis2.read()
+    analysis2.close()
+
+    local_dict = json.loads(local_dict)
+    local_dict2 = json.loads(local_dict2)
+
+    keys_List = []
+    keys_List.append(local_dict)
+    keys_List.append(local_dict)
+
+    return json.dumps(keys_List)
 
 @app.route("/analyze-text")
 def analyze_text():
