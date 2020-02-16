@@ -78,7 +78,10 @@ if fail_safe != 0: #already exists
 #print(search_results)
 z = open("tweetsList.txt", "w+")
 for i in range(len(search_results[name])):
-    z.write(search_results[name][i])
+    for character in search_results[name][i]:
+        if (character >= ' ' and character <= 'z'):
+            z.write(character)
+
 z.close()
 
 if fail_safe != 0: #already exists in database
