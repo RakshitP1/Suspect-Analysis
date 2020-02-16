@@ -43,7 +43,7 @@ def load_form(): # get info form
 
     keys_List = []
     keys_List.append(local_dict)
-    keys_List.append(local_dict)
+    keys_List.append(local_dict2)
 
     return json.dumps(keys_List)
 
