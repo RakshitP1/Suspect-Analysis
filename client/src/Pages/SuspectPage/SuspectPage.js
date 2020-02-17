@@ -110,10 +110,10 @@ class SuspectPage extends React.Component {
         result => {
           console.log("result", result);
           for (let i = 0; i < result[0].length; i++) {
-            if (result[0][i][1] > 5) {
+            if (result[0][i][1] > 3) {
               console.log("love", result[0][i][0]);
               this.state.love.push(result[0][i][0]);
-            } else if (result[0][i][1] > 2 && result[0][i][1] < 5) {
+            } else if (result[0][i][1] > 1 && result[0][i][1] < 3) {
               console.log("like", result[0][i][0]);
               this.state.like.push(result[0][i][0]);
             } else {
@@ -127,10 +127,10 @@ class SuspectPage extends React.Component {
           console.log(this.state.cordial);
 
           for (let i = 0; i < result[1].length; i++) {
-            if (result[1][i][1] < -5) {
+            if (result[1][i][1] < -3) {
               console.log("hate", result[1][i][0]);
               this.state.hate.push(result[1][i][0]);
-            } else if (result[1][i][1] < -2 && result[0][i][1] > -5) {
+            } else if (result[1][i][1] < -1 && result[0][i][1] > -3) {
               console.log("dislike", result[1][i][0]);
               this.state.dislike.push(result[1][i][0]);
             } else {

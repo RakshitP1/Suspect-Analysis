@@ -19,14 +19,18 @@ class MainPage extends React.Component {
   }
 
   handleSubmit(event) {
-    this.setState({ redirect: true });
-    this.setState({
-      search:
-        "?name=" +
-        this.state.name +
-        "&twitter_handle=" +
-        this.state.twitterHandle
-    });
+    if (this.state.name == "" || this.state.twitterHandle == "") {
+      alert("Be sure to fill out all the fields");
+    } else {
+      this.setState({ redirect: true });
+      this.setState({
+        search:
+          "?name=" +
+          this.state.name +
+          "&twitter_handle=" +
+          this.state.twitterHandle
+      });
+    }
   }
 
   handleChangeName(event) {
