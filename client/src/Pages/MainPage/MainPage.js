@@ -54,14 +54,14 @@ class MainPage extends React.Component {
     } else {
       return (
         <div className="MainPage">
-          <h1>Suspect Analysis</h1>
+          <h1>Candidate Analysis</h1>
 
           <form onSubmit={this.handleSubmit}>
             <div>
               <label>Name</label>
               <input
                 type="text"
-                placeholder="Possible suspect's name"
+                placeholder="Candidate's name"
                 onChange={this.handleChangeName}
               ></input>
             </div>
@@ -70,7 +70,7 @@ class MainPage extends React.Component {
             <label>Twitter Handle</label>
             <input
               type="text"
-              placeholder="Possible suspect's twitter handle"
+              placeholder="Candidate's Twitter handle"
               onChange={this.handleChangeTwitterHandle}
             ></input>
             <button>Search</button>
