@@ -64,7 +64,6 @@ def add_entity_list(big_entity_list, small_entity_list):
 
 
 if __name__ == '__main__':
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "google-auth.json"
     z = open("tweetsList.txt", "r")
 
     text = z.read()

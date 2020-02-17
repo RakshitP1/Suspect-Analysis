@@ -1,8 +1,7 @@
-runtime: python
+runtime: python27
 api_version: 1
-threadsafe: true
+thread_safe: true
 env: flex
-entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
   python_version: 3
@@ -18,6 +17,6 @@ resources:
   memory_gb: 0.5
   disk_size_gb: 10
 
-libraries:
-- name: flask
-  version: 1.1.1
+handlers:
+- url: /.*
+  script: app.py
